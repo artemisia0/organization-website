@@ -1,16 +1,14 @@
+import 'server-only'
+
 import mongoose from 'mongoose';
 
 
 const userSchema = new mongoose.Schema(
     {
         username: String,
-        firstName: String,
-        lastName: String,
-        age: Number,
+		hashedPassword: String,
     }
 );
 
-const User = mongoose.model('User', userSchema);
-
-export default User;
+export const User = mongoose.models.User || mongoose.model('User', userSchema)
 
