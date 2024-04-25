@@ -1,16 +1,20 @@
 'use client'
 
+import React from 'react'
 import {logout} from '@/app/actions/auth'
+import {useFormState} from 'react-dom'
+import SubmitFormButton from '@/app/ui/submitFormButton'
 
 
 export default function LogoutPage() {
+	const [, formAction] = useFormState(logout)
+
 	return (
-		<button
-			className="btn btn-neutral btn-outline shadow-lg"
-			onClick={async () => logout()}
-		>
-			Logout
-		</button>
+		<div className="p-24 flex justify-center">
+			<form action={formAction} className="p-12 card bg-base-200 shadow-xl">
+				<SubmitFormButton>Logout</SubmitFormButton>
+			</form>
+		</div>
 	)
 }
 

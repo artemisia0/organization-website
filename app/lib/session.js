@@ -2,7 +2,6 @@ import 'server-only'
 
 import {SignJWT, jwtVerify} from 'jose'
 import {cookies} from 'next/headers'
-import {redirect} from 'next/navigation'
 
 
 const secretKey = process.env.SESSION_SECRET
@@ -29,13 +28,20 @@ export async function decrypt(session) {
 		)
 		return payload
 	} catch(err) {
-		console.log("Failed to verify session")
+		console.log("Failed to verify session: " + err)
 	}
 }
 
 export async function createSession(username) {
 	const expiresAt = new Date(Date.now() + 5 * 60 * 1000)
-	const session = await encrypt({username, expiresAt})
+	const role = (username === 'admin' ? 'admin' : 'user')
+	const session = await encrypt(
+		{
+			username,
+			expiresAt,
+			role,
+		}
+	)
 
 	cookies().set('session', session, {
 		httpOnly: true,

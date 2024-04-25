@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import RegisterForm from '@/app/ui/registerForm';
 
 

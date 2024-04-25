@@ -14,8 +14,10 @@ export async function profile() {
 
 	const payload = await decrypt(session)
 	const username = payload.username
+	const role = payload.role
 	return {
-		username
+		username,
+		role,
 	}
 }
 

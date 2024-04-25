@@ -1,13 +1,13 @@
 'use client'
 
+import React from 'react'
 import {register} from '@/app/actions/auth'
 import {useFormState} from 'react-dom'
-import RegisterButton from '@/app/ui/registerButton'
 import SubmitFormButton from '@/app/ui/submitFormButton'
 
 
 export default function RegisterForm() {
-	const [state, formAction] = useFormState(register);
+	const [state, formAction] = useFormState(register, null);
 
 	let usernameErrors = null
 	if (state?.errors?.username) {

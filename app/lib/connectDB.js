@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 export async function disconnectDB() {
 	try {
 		await mongoose.disconnect();
-		globalThis.isConnectedToDB = false;
+		global.isConnectedToDB = false;
 		console.log("Disconnected from DB");
 	} catch(err) {
 		console.error(`Failed to disconnect from DB: ${err}`);
@@ -14,10 +14,10 @@ export async function disconnectDB() {
 	}
 }
 
-globalThis.isConnectedToDB = false;
+global.isConnectedToDB = false;
 
 export async function connectDB() {
-	if (globalThis.isConnectedToDB) {
+	if (global.isConnectedToDB) {
 		return;
 	}
 	try {
@@ -27,7 +27,7 @@ export async function connectDB() {
 			process.exit(1);
 		}
 		await mongoose.connect(DB_URI);
-		globalThis.isConnectedToDB = true;
+		global.isConnectedToDB = true;
 		process.on('beforeExit', async () => await disconnectDB());
 		console.log("Connected to DB");
 	} catch (err) {
