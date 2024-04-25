@@ -1,18 +1,11 @@
-'use client'
-
-import {login} from '@/app/actions/auth'
-import {useFormState} from 'react-dom'
-import LoginButton from '@/app/ui/loginButton'
+import LoginForm from '@/app/ui/loginForm'
 
 
 export default function LoginPage() {
-	const [state, formAction] = useFormState(login)
 	return (
-		<form action={formAction}>
-			<input type="text" name="username" placeholder="Username" />
-			<input type="password" name="password" placeholder="Password" />
-			<LoginButton></LoginButton>
-		</form>
+		<div className="flex flex-col items-center p-24">
+			<LoginForm></LoginForm>
+		</div>
 	)
 }
 

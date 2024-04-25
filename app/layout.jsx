@@ -1,7 +1,7 @@
 import React from 'react'
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from 'next/link'
+import NavLink from '@/app/ui/navLink'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,35 +12,45 @@ export const metadata = {
 
 export default function RootLayout({children}) {
 	return (
-		<html lang="en" data-theme="garden">
+		<html lang="en" data-theme="retro">
 			<body className={inter.className}>
 				<header>
-					<nav>
+					<nav className="nav bg-base-200 shadow-xl p-3">
 						<ul className="flex flex-row justify-evenly">
 							<li>
-								<Link href="/">
-									Organization Website
-								</Link>
+								<NavLink href="/">
+									<div className="font-black text-2xl">
+										Organization Website
+									</div>
+								</NavLink>
 							</li>
 							<li>
-								<Link href="/profile">
-									Profile
-								</Link>
+								<NavLink href="/profile">
+									<div className="font-bold text-lg">
+										Profile
+									</div>
+								</NavLink>
 							</li>
 							<li>
-								<Link href="/register">
-									Register
-								</Link>
+								<NavLink href="/register">
+									<div className="font-bold text-lg">
+										Register
+									</div>
+								</NavLink>
 							</li>
 							<li>
-								<Link href="/login">
-									Login
-								</Link>
+								<NavLink href="/login">
+									<div className="font-bold text-lg">
+										Login
+									</div>
+								</NavLink>
 							</li>
 							<li>
-								<Link href="/logout">
-									Logout
-								</Link>
+								<NavLink href="/logout">
+									<div className="font-bold text-lg">
+										Logout
+									</div>
+								</NavLink>
 							</li>
 						</ul>
 					</nav>

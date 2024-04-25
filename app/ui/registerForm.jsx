@@ -3,6 +3,7 @@
 import {register} from '@/app/actions/auth'
 import {useFormState} from 'react-dom'
 import RegisterButton from '@/app/ui/registerButton'
+import SubmitFormButton from '@/app/ui/submitFormButton'
 
 
 export default function RegisterForm() {
@@ -15,7 +16,7 @@ export default function RegisterForm() {
 				<ul>
 					{state.errors.username.map(
 						err =>
-							<li className="p-1 m-2 card bg-base-100" key={err}>{err}</li>
+							<li className="p-1 m-2 card bg-base-100 shadow-lg" key={err}>{err}</li>
 					)}
 				</ul>
 			</div>
@@ -29,7 +30,7 @@ export default function RegisterForm() {
 				<ul>
 					{state.errors.password.map(
 						err =>
-							<li className="p-1 m-2 card bg-base-100" key={err}>{err}</li>
+							<li className="p-1 m-2 card bg-base-100 shadow-lg" key={err}>{err}</li>
 					)}
 				</ul>
 			</div>
@@ -39,26 +40,24 @@ export default function RegisterForm() {
 	const errorMessage = state?.errorMessage
 
 	return (
-		<form className="flex flex-col items-center" action={formAction}>
-			<div className="p-4 m-3 card bg-base-200 shadow-xl">
-				<label htmlFor="username">Username</label>
-				<input className="card shadow-lg" id="username" name="username" type="text" />
+		<form className="flex flex-col items-center card bg-base-200 shadow-xl p-8"
+			action={formAction}>
+			<input className="input input-bordered input-sm shadow-lg m-3"
+				name="username" placeholder="Username" type="none" />
 			{usernameErrors && usernameErrors}
-			</div>
 
-			<div className="p-4 m-3 card bg-base-200 shadow-xl">
-				<label htmlFor="Password">Password</label>
-				<input className="card shadow-lg" id="password" name="password" type="password" />
+			<input className="input input-bordered input-sm shadow-lg m-3"
+				name="password" type="password" placeholder="Password" />
 			{passwordErrors && passwordErrors}
-			</div>
 
 			{errorMessage &&
-				<div className="p-4 m-3 card bg-base-200 shadow-xl">
+				<div className="p-4 m-3 card bg-base-100 shadow-lg">
 					{errorMessage}
 				</div>
 			}
 
-			<RegisterButton />
+			<SubmitFormButton>Register</SubmitFormButton>
 		</form>
 	)
 }
+
