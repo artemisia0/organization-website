@@ -74,3 +74,13 @@ export function deleteSession() {
 	cookies().delete('session')
 }
 
+export async function userRole() {
+	const session = cookies().get('session')?.value
+	let role = null
+	if (session) {
+		const payload = await decrypt(session)
+		role = payload?.role
+	}
+	return role
+}
+

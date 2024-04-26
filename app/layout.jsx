@@ -2,6 +2,8 @@ import React from 'react'
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavLink from '@/app/ui/navLink'
+import {userRole} from '@/app/lib/session'
+import {cookies} from 'next/headers'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,7 +12,8 @@ export const metadata = {
   description: "An abstract organization website",
 };
 
-export default function RootLayout({children}) {
+export default async function RootLayout({children}) {
+	const role = await userRole()
 	return (
 		<html lang="en" data-theme="retro">
 			<body className={inter.className}>
@@ -24,34 +27,42 @@ export default function RootLayout({children}) {
 									</div>
 								</NavLink>
 							</li>
-							<li key={2}>
-								<NavLink href="/profile">
-									<div className="font-bold text-lg">
-										Profile
-									</div>
-								</NavLink>
-							</li>
-							<li key={3}>
-								<NavLink href="/register">
-									<div className="font-bold text-lg">
-										Register
-									</div>
-								</NavLink>
-							</li>
-							<li key={4}>
-								<NavLink href="/login">
-									<div className="font-bold text-lg">
-										Login
-									</div>
-								</NavLink>
-							</li>
-							<li key={5}>
-								<NavLink href="/logout">
-									<div className="font-bold text-lg">
-										Logout
-									</div>
-								</NavLink>
-							</li>
+							{role &&
+								<li key={2}>
+									<NavLink href="/profile">
+										<div className="font-bold text-lg">
+											Profile
+										</div>
+									</NavLink>
+								</li>
+							}
+							{!role &&
+								<li key={4}>
+									<NavLink href="/login">
+										<div className="font-bold text-lg">
+											Login
+										</div>
+									</NavLink>
+								</li>
+							}
+							{!role &&
+								<li key={3}>
+									<NavLink href="/register">
+										<div className="font-bold text-lg">
+											Register
+										</div>
+									</NavLink>
+								</li>
+							}
+							{role &&
+								<li key={5}>
+									<NavLink href="/logout">
+										<div className="font-bold text-lg">
+											Logout
+										</div>
+									</NavLink>
+								</li>
+							}
 						</ul>
 					</nav>
 				</header>
