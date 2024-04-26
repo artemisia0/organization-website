@@ -12,7 +12,7 @@ export default function UserCard(props) {
 		)
 	}
 	return (
-		<div className="card shadow-xl bg-base-200 p-8">
+		<div className="card shadow-lg bg-base-200 p-8">
 			{fields.length &&
 				<ul>
 					{fields}

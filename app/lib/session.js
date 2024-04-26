@@ -1,3 +1,4 @@
+'use server'
 import 'server-only'
 
 import {SignJWT, jwtVerify} from 'jose'
@@ -70,7 +71,7 @@ export async function updateSession() {
 	})
 }
 
-export function deleteSession() {
+export async function deleteSession() {
 	cookies().delete('session')
 }
 

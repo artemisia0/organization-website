@@ -40,7 +40,7 @@ export default function RegisterForm() {
 	const errorMessage = state?.errorMessage
 
 	return (
-		<form className="flex flex-col items-center card bg-base-200 shadow-xl p-8"
+		<form className="flex flex-col items-center card bg-base-200 shadow-lg p-8"
 			action={formAction}>
 			<input className="input input-bordered input-sm shadow-lg m-3"
 				name="username" placeholder="Username" type="none" />

@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavLink from '@/app/ui/navLink'
 import {userRole} from '@/app/lib/session'
-import {cookies} from 'next/headers'
 
 const inter = Inter({ subsets: ["latin"] });
 
