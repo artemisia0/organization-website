@@ -20,6 +20,8 @@ export default function AddPostPage() {
 				className="input input-bordered m-4" />
 			<input name="author" placeholder="Author"
 				className="input input-bordered m-4" />
+			<textarea name="contents" placeholder="Contents"
+				className="textarea textarea-bordered m-4" />
 			<SubmitFormButton>Add</SubmitFormButton>
 		</form>
 	)

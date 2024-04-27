@@ -9,7 +9,7 @@ export async function postsData(currentPage, pageSize) {
 
 	return JSON.stringify(
 		await Post
-		.find({}, 'title desc date author postID')
+		.find({}, 'title desc date author postID contents')
 		.sort({postID: -1})
 		.skip(currentPage*pageSize - pageSize)
 		.limit(pageSize)
@@ -47,12 +47,14 @@ export async function addPost(currentState, formData) {
 	const desc = formData.get('desc')
 	const date = formData.get('date')
 	const author = formData.get('author')
+	const contents = formData.get('contents')
 
 	const newPost = new Post({
 		title, 
 		desc, 
 		date, 
 		author,
+		contents,
 		postID: await biggestPostID() + 1
 	})
 	await newPost.save()
@@ -62,5 +64,11 @@ export async function deletePost(postID) {
 	await connectDB()
 
 	await Post.deleteMany({postID})
+}
+
+export async function postData(postID) {
+	await connectDB()
+
+	return JSON.stringify(await Post.findOne({postID}))
 }
 

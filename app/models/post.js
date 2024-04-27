@@ -5,7 +5,8 @@ const postSchema = new mongoose.Schema({
 	title: String,
 	desc: String,
 	date: String,
-	username: String,
+	author: String,
+	contents: String,
 	postID: Number,
 })
 
