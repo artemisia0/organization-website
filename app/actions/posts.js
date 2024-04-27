@@ -7,21 +7,20 @@ import {connectDB} from '@/app/lib/connectDB'
 export async function postsData(currentPage, pageSize) {
 	await connectDB()
 
-	const startIndex = (currentPage-1)*pageSize
-	const endIndex = currentPage*pageSize
 	return JSON.stringify(
 		await Post
 		.find({}, 'title desc date author postID')
 		.sort({postID: -1})
-		.skip(startIndex)
-		.limit(endIndex)
+		.skip(currentPage*pageSize - pageSize)
+		.limit(pageSize)
 	)
 }
 
 export async function postsCount() {
 	await connectDB()
 
-	return await Post.countDocuments()
+	const arr = await Post.find()
+	return arr.length
 }
 
 async function biggestPostID() {

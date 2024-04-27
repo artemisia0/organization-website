@@ -27,10 +27,14 @@ export default function Posts() {
 	}, [setPostCardsData, currentPage, pageSize])
 
 	useEffect(() => {
-		postsCount().then(res => setMaxPage(
-			Math.max(1, Math.floor((res-1)/pageSize) + 1)
-		))
-	}, [setMaxPage, pageSize])
+		postsCount().then(res => 
+			setMaxPage(
+				Math.ceil(
+					res/Number.parseFloat(pageSize.toString())
+				)
+			)
+		)
+		}, [setMaxPage, pageSize])
 
 	const postCards = postCardsData.map(
 		({title, desc, date, author, postID}) => (
@@ -59,11 +63,11 @@ export default function Posts() {
 					{postCards}
 				</div>
 			}
-			{maxPage !== 1 &&
+			{maxPage >= 1 &&
 				<div className="join m-12">
 					<button className="join-item btn btn-accent btn-outline"
 						onClick={() => setCurrentPage(currentPage - 1)}
-						disabled={currentPage === 1}>
+						disabled={currentPage <= 1}>
 						&#8592;
 					</button>
 					<button className="join-item btn btn-accent btn-outline">
@@ -71,7 +75,7 @@ export default function Posts() {
 					</button>
 					<button className="join-item btn btn-accent btn-outline"
 						onClick={() => setCurrentPage(currentPage + 1)}
-						disabled={currentPage === maxPage}>
+						disabled={currentPage >= maxPage}>
 						&#8594;
 					</button>
 				</div>
