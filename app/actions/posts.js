@@ -63,7 +63,7 @@ export async function addPost(currentState, formData) {
 export async function deletePost(postID) {
 	await connectDB()
 
-	await Post.deleteMany({postID})
+	await Post.deleteOne({postID})
 }
 
 export async function postData(postID) {

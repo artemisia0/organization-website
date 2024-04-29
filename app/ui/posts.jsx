@@ -14,6 +14,7 @@ export default function Posts() {
 	const [maxPage, setMaxPage] = useState(1)
 	const [role, setRole] = useState(null)
 	const [postCardsData, setPostCardsData] = useState([])
+	const [postCardsCount, setPostCardsCount] = useState(0)
 
 	useEffect(() => {
 		userRole().then(res => setRole(res))
@@ -24,17 +25,21 @@ export default function Posts() {
 				setPostCardsData(JSON.parse(res))
 			}
 		) 
-	}, [setPostCardsData, currentPage, pageSize])
+	}, [setPostCardsData, currentPage, pageSize, postCardsCount])
 
 	useEffect(() => {
-		postsCount().then(res => 
-			setMaxPage(
-				Math.ceil(
-					res/Number.parseFloat(pageSize.toString())
+		postsCount().then(
+			res =>
+			{
+				setPostCardsCount(res)
+				setMaxPage(
+					Math.ceil(
+						postCardsCount/Number.parseFloat(pageSize.toString())
+					)
 				)
-			)
+			}
 		)
-		}, [setMaxPage, pageSize])
+		}, [setMaxPage, pageSize, setPostCardsCount, postCardsCount])
 
 	const postCards = postCardsData.map(
 		({title, desc, date, author, postID}) => (
@@ -44,7 +49,9 @@ export default function Posts() {
 				desc={desc}
 				date={date}
 				author={author}
-				postID={postID} />
+				postID={postID}
+				postCardsCount={postCardsCount}
+				setPostCardsCount={setPostCardsCount} />
 		)
 	)
 

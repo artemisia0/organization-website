@@ -5,12 +5,18 @@ import {deletePost} from '@/app/actions/posts'
 import Link from 'next/link'
 
 
-export default function PostCard({title, desc, date, author, postID}) {
+export default function PostCard({title, desc, date, author, postID,
+	setPostCardsCount, postCardsCount}) {
 	const [role, setRole] = useState(null)
 
 	useEffect(() => {
 		userRole().then(res => setRole(res))
 	}, [setRole])
+
+	const deleteButtonCallback = async () => {
+		setPostCardsCount(postCardsCount - 1)
+		await deletePost(postID)
+	}
 
 	return (
 		<div className="flex justify-between card bg-base-200 shadow-lg p-8 m-6 w-96">
@@ -49,7 +55,7 @@ export default function PostCard({title, desc, date, author, postID}) {
 							Edit
 						</Link>
 						<button className="btn btn-secondary btn-outline"
-							onClick={async () => await deletePost(postID)}>
+							onClick={deleteButtonCallback}>
 							Delete
 						</button>
 					</>

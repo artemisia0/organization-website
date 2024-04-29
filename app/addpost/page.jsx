@@ -7,7 +7,7 @@ import {useFormState} from 'react-dom'
 
 
 export default function AddPostPage() {
-	const [currentState, formAction] = useFormState(addPost, null)
+	const [, formAction] = useFormState(addPost, null)
 
 	return (
 		<form className="card shadow-lg bg-base-200 p-8 m-12"
