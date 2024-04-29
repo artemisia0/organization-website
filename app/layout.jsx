@@ -14,7 +14,7 @@ export const metadata = {
 export default async function RootLayout({children}) {
 	const role = await userRole()
 	return (
-		<html lang="en" data-theme="retro">
+		<html lang="en" data-theme="emerald">
 			<body className={inter.className}>
 				<header>
 					<nav className="nav bg-base-200 shadow-xl p-3">
