@@ -70,7 +70,7 @@ export default function Posts() {
 					{postCards}
 				</div>
 			}
-			{maxPage >= 1 &&
+			{maxPage > 1 &&
 				<div className="join m-12">
 					<button className="join-item btn btn-accent btn-outline"
 						onClick={() => setCurrentPage(currentPage - 1)}
