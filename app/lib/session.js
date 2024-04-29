@@ -3,12 +3,13 @@ import 'server-only'
 
 import {SignJWT, jwtVerify} from 'jose'
 import {cookies} from 'next/headers'
+import {sessionLifetime} from '@/app/lib/common'
 
 
 const secretKey = process.env.SESSION_SECRET
 if (!secretKey) {
 	console.error("SESSION_SECRET is not set!")
-	process.exit(1)
+	throw new Error("SESSION_SECRET is not set!")
 }
 
 const encodedKey = new TextEncoder().encode(secretKey)
@@ -17,7 +18,7 @@ export async function encrypt(payload) {
 	return new SignJWT(payload)
 		.setProtectedHeader({alg: "HS256"})
 		.setIssuedAt()
-		.setExpirationTime('5m')
+		.setExpirationTime(parseInt((sessionLifetime/60/1000).toString())+'m')
 		.sign(encodedKey)
 }
 
@@ -34,7 +35,7 @@ export async function decrypt(session) {
 }
 
 export async function createSession(username) {
-	const expiresAt = new Date(Date.now() + 5 * 60 * 1000)
+	const expiresAt = new Date(Date.now() + sessionLifetime)
 	const role = (username === 'admin' ? 'admin' : 'user')
 	const session = await encrypt(
 		{
@@ -61,7 +62,7 @@ export async function updateSession() {
 		return
 	}
 
-	const expires = new Date(Date.now() + 5 * 60 * 1000)
+	const expires = new Date(Date.now() + sessionLifetime)
 	cookies().set('session', session, {
 		httpOnly: true,
 		secure: true,
