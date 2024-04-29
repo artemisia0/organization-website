@@ -2,6 +2,7 @@
 
 import {Post} from '@/app/models/post'
 import {connectDB} from '@/app/lib/connectDB'
+import {redirect} from 'next/navigation'
 
 
 export async function postsData(currentPage, pageSize) {
@@ -58,6 +59,25 @@ export async function addPost(currentState, formData) {
 		postID: await biggestPostID() + 1
 	})
 	await newPost.save()
+	redirect('/')
+}
+
+export async function editPost(currentState, formData) {
+	await connectDB()
+
+	const title = formData.get('title')
+	const desc = formData.get('desc')
+	const contents = formData.get('contents')
+	const postID = parseInt(formData.get('postID'))
+
+	const newPostData = {
+		title, 
+		desc, 
+		contents,
+	}
+
+	await Post.updateOne({postID}, newPostData)
+	redirect('/')
 }
 
 export async function deletePost(postID) {
