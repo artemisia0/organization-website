@@ -1,13 +1,20 @@
-# organization-website
-Better readme will be written later. Now project is not ready and is in early stage of development. This is an abstract organization website (or smth like student management system).
+## **[deploy](https://main.d35bvokqvgttdr.amplifyapp.com/)**
+
+## Description
+This is just an exercise toy website. It might be an abstract organization website (like university or school).
+
+## Features
+- auth (login/register/logout)
+- pagination (on root '/' page)
+- users have roles (admin/user)
+- admin can perform CRUD operations on posts
+- user can only read posts
 
 ## Tech stack
-- next.js
+- Next.js
 - tailwind css
 - daisy ui
-- react.js
-- mongodb
-- mongoose
-- zod
-- jose
-- jwt
+- mongoose (mongodb driver)
+- zod (form validation)
+- jose (auth)
+
