@@ -21,7 +21,7 @@ export async function connectDB() {
 		return;
 	}
 	try {
-		const DB_URI = process.env.secrets.DB_URI;
+		const DB_URI = process.env.DB_URI;
 		if (!DB_URI) {
 			console.error("DB_URI environment variable is not set!");
 			process.exit(1);

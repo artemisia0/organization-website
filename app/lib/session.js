@@ -6,7 +6,7 @@ import {cookies} from 'next/headers'
 import {sessionLifetime} from '@/app/lib/common'
 
 
-const secretKey = process.env.secrets.SESSION_SECRET
+const secretKey = process.env.SESSION_SECRET
 if (!secretKey) {
 	console.error("SESSION_SECRET is not set!")
 	throw new Error("SESSION_SECRET is not set!")
