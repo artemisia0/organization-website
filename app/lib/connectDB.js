@@ -17,6 +17,11 @@ export async function disconnectDB() {
 global.isConnectedToDB = false;
 
 export async function connectDB() {
+
+	console.log("TRYING TO CONNECT TO DB")
+	console.log("DB_URI=" + process.env.DB_URI)
+	console.log("SESSION_SECRET=" + process.env.SESSION_SECRET)
+
 	if (global.isConnectedToDB) {
 		return;
 	}
