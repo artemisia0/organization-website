@@ -59,7 +59,7 @@ export default function Posts() {
 		<div className="flex flex-col items-center pt-16">
 			{role === 'admin' && currentPage === 1 &&
 				<div className="flex justify-center  card shadow-lg p-8 m-8">
-					<Link className="btn btn-secondary btn-outline btn-wide"
+					<Link className="btn btn-secondary btn-outline"
 						href="/addpost">
 						Add
 					</Link>

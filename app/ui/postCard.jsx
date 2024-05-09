@@ -19,7 +19,7 @@ export default function PostCard({title, desc, date, author, postID,
 	}
 
 	return (
-		<div className="flex justify-between card  shadow-lg p-8 m-6 w-96">
+		<div className="flex justify-between card shadow-lg p-8 m-6 w-64 md:w-96">
 			<div className="flex flex-col w-auto">
 				<h2 className="flex justify-center text-lg font-bold">
 					{title}

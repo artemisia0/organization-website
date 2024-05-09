@@ -21,14 +21,14 @@ export default async function RootLayout({children}) {
 						<ul className="flex flex-row justify-evenly">
 							<li key={1}>
 								<NavLink href="/"
-									className="font-black text-2xl">
-									Organization Website
+									className="font-black text-xl">
+									MyOrganization123
 								</NavLink>
 							</li>
 							{role &&
 								<li key={2}>
 									<NavLink href="/profile"
-										className="font-bold text-lg">
+										className="font-bold text-md">
 										Profile
 									</NavLink>
 								</li>
@@ -36,7 +36,7 @@ export default async function RootLayout({children}) {
 							{!role &&
 								<li key={4}>
 									<NavLink href="/login"
-										className="font-bold text-lg">
+										className="font-bold text-md">
 										Login
 									</NavLink>
 								</li>
@@ -44,7 +44,7 @@ export default async function RootLayout({children}) {
 							{!role &&
 								<li key={3}>
 									<NavLink href="/register"
-										className="font-bold text-lg">
+										className="font-bold text-md">
 										Register
 									</NavLink>
 								</li>
@@ -52,7 +52,7 @@ export default async function RootLayout({children}) {
 							{role &&
 								<li key={5}>
 									<NavLink href="/logout"
-										className="font-bold text-lg">
+										className="font-bold text-md">
 										Logout
 									</NavLink>
 								</li>
