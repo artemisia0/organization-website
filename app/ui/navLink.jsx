@@ -8,8 +8,13 @@ import Link from 'next/link'
 export default function NavLink(props) {
 	const path = usePathname()
 
+	const underlineStyle = ` ${path === props?.href ? 'underline decoration-black' : ''} `
+	if (!props.className) {
+		props.className = " "
+	}
 	return (
-		<Link {...props} className={`${path === props?.href ? 'underline decoration-red-700' : ''}`}>
+		<Link className={props.className + underlineStyle} href={props.href}>
+			{props.children}
 		</Link>
 	)
 }

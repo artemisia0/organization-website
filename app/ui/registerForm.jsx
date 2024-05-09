@@ -16,7 +16,7 @@ export default function RegisterForm() {
 				<ul>
 					{state.errors.username.map(
 						err =>
-							<li className="p-1 m-2 card bg-base-100 shadow-lg" key={err}>{err}</li>
+							<li className="p-1 m-2 card shadow-lg" key={err}>{err}</li>
 					)}
 				</ul>
 			</div>
@@ -30,7 +30,7 @@ export default function RegisterForm() {
 				<ul>
 					{state.errors.password.map(
 						err =>
-							<li className="p-1 m-2 card bg-base-100 shadow-lg" key={err}>{err}</li>
+							<li className="p-1 m-2 card shadow-lg" key={err}>{err}</li>
 					)}
 				</ul>
 			</div>
@@ -40,7 +40,7 @@ export default function RegisterForm() {
 	const errorMessage = state?.errorMessage
 
 	return (
-		<form className="flex flex-col items-center card bg-base-200 shadow-lg p-8"
+		<form className="flex flex-col items-center card shadow-lg p-8"
 			action={formAction}>
 			<input className="input input-bordered input-sm shadow-lg m-3"
 				name="username" placeholder="Username" type="none" />
@@ -51,7 +51,7 @@ export default function RegisterForm() {
 			{passwordErrors && passwordErrors}
 
 			{errorMessage &&
-				<div className="p-4 m-3 card bg-base-100 shadow-lg">
+				<div className="p-4 m-3 card shadow-lg">
 					{errorMessage}
 				</div>
 			}

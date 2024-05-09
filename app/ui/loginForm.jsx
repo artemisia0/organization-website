@@ -10,11 +10,11 @@ export default function LoginForm() {
 	const [, formAction] = useFormState(login, null)
 
 	return (
-		<form action={formAction} className="flex items-center flex-col card shadow-lg p-8 bg-base-200">
+		<form action={formAction} className="flex items-center flex-col card shadow-lg p-8">
 			<input name="username" placeholder="Username" type="none"
-				className="input input-bordered input-sm shadow-lg bg-base-100 m-3"/>
+				className="input input-bordered input-sm shadow-lg m-3"/>
 			<input type="password" name="password" placeholder="Password"
-				className="input input-bordered input-sm shadow-lg bg-base-100 m-3"/>
+				className="input input-bordered input-sm shadow-lg m-3"/>
 			<SubmitFormButton>Login</SubmitFormButton>
 		</form>
 	)

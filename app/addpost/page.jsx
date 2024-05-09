@@ -10,7 +10,7 @@ export default function AddPostPage() {
 	const [, formAction] = useFormState(addPost, null)
 
 	return (
-		<form className="card shadow-lg bg-base-200 p-8 m-12"
+		<form className="card shadow-lg p-8 m-12"
 			action={formAction}>
 			<input name="title" placeholder="Title"
 				className="input input-bordered m-4" />

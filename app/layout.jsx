@@ -14,51 +14,46 @@ export const metadata = {
 export default async function RootLayout({children}) {
 	const role = await userRole()
 	return (
-		<html lang="en" data-theme="emerald">
-			<body className={inter.className}>
+		<html lang="en" data-theme="light">
+			<body className={inter.className + " min-h-lvh bg-gradient-to-br from-rose-100 to-amber-100 "}>
 				<header>
-					<nav className="nav bg-base-200 shadow-xl p-3">
+					<nav className="nav  shadow-xl p-3">
 						<ul className="flex flex-row justify-evenly">
 							<li key={1}>
-								<NavLink href="/">
-									<div className="font-black text-2xl">
-										Organization Website
-									</div>
+								<NavLink href="/"
+									className="font-black text-2xl">
+									Organization Website
 								</NavLink>
 							</li>
 							{role &&
 								<li key={2}>
-									<NavLink href="/profile">
-										<div className="font-bold text-lg">
-											Profile
-										</div>
+									<NavLink href="/profile"
+										className="font-bold text-lg">
+										Profile
 									</NavLink>
 								</li>
 							}
 							{!role &&
 								<li key={4}>
-									<NavLink href="/login">
-										<div className="font-bold text-lg">
-											Login
-										</div>
+									<NavLink href="/login"
+										className="font-bold text-lg">
+										Login
 									</NavLink>
 								</li>
 							}
 							{!role &&
 								<li key={3}>
-									<NavLink href="/register">
-										<div className="font-bold text-lg">
-											Register
-										</div>
+									<NavLink href="/register"
+										className="font-bold text-lg">
+										Register
 									</NavLink>
 								</li>
 							}
 							{role &&
 								<li key={5}>
-									<NavLink href="/logout">
-										<div className="font-bold text-lg">
-											Logout
-										</div>
+									<NavLink href="/logout"
+										className="font-bold text-lg">
+										Logout
 									</NavLink>
 								</li>
 							}

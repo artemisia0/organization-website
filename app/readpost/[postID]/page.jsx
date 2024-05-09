@@ -29,13 +29,17 @@ export default function ReadPostPage({params}) {
 	)
 
 	return (
-		<div className="p-8 m-12 card bg-base-200 shadow-lg">
+		<div className="p-8 m-12 card shadow-lg">
 			<h2>{title}</h2>
 			<p>{desc}</p>
-			<div>{contents}</div>
+			<div className="text-wrap m-4 p-8">{contents}</div>
 			<ul>
-				<li key={1}><span className="font-bold">date</span>: {date}</li>
-				<li key={2}><span className="font-bold">author</span>: {author}</li>
+				<li key={1}>
+					<span className="font-bold">date</span>: <p>{date}</p>
+				</li>
+				<li key={2}>
+					<span className="font-bold">author</span>: <p>{author}</p>
+				</li>
 			</ul>
 		</div>
 	)

@@ -11,7 +11,7 @@ export default function LogoutPage() {
 
 	return (
 		<div className="p-24 flex justify-center">
-			<form action={formAction} className="p-12 card bg-base-200 shadow-lg">
+			<form action={formAction} className="p-12 card shadow-lg">
 				<SubmitFormButton>Logout</SubmitFormButton>
 			</form>
 		</div>

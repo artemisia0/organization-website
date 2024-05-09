@@ -6,13 +6,13 @@ export default function UserCard(props) {
 	const fields = []
 	for (const [key, value] of userData) {
 		fields.push(
-			<li key={key} className="card bg-base-100 shadow-lg p-2 m-3">
+			<li key={key} className="p-2 m-3">
 				<p><span className="font-bold">{key}</span>: {value}</p>
 			</li>
 		)
 	}
 	return (
-		<div className="card shadow-lg bg-base-200 p-8">
+		<div className="card shadow-lg p-8">
 			{fields.length &&
 				<ul>
 					{fields}

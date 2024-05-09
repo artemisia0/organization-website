@@ -58,7 +58,7 @@ export default function Posts() {
 	return (
 		<div className="flex flex-col items-center pt-16">
 			{role === 'admin' && currentPage === 1 &&
-				<div className="flex justify-center bg-base-200 shadow-lg p-8 m-8">
+				<div className="flex justify-center  card shadow-lg p-8 m-8">
 					<Link className="btn btn-secondary btn-outline btn-wide"
 						href="/addpost">
 						Add
@@ -71,7 +71,7 @@ export default function Posts() {
 				</div>
 			}
 			{maxPage > 1 &&
-				<div className="join m-12">
+				<div className="join m-12 p-8 shadow-lg">
 					<button className="join-item btn btn-accent btn-outline"
 						onClick={() => setCurrentPage(currentPage - 1)}
 						disabled={currentPage <= 1}>
