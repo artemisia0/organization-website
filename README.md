@@ -17,5 +17,10 @@ This is just an exercise toy website. It might be an abstract organization websi
 - jose (auth)
 
 ## How it looks
-![img1](https://github.com/artemisia0/organization-website/blob/main/Screenshot\ from\ 2024-05-30\ 20-51-47.png)
+![img1](https://github.com/artemisia0/organization-website/blob/main/first.png)
+![img1](https://github.com/artemisia0/organization-website/blob/main/second.png)
+![img1](https://github.com/artemisia0/organization-website/blob/main/third.png)
+![img1](https://github.com/artemisia0/organization-website/blob/main/fourth.png)
+![img1](https://github.com/artemisia0/organization-website/blob/main/fifth.png)
+![img1](https://github.com/artemisia0/organization-website/blob/main/sixth.png)
 
