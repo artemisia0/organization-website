@@ -1,5 +1,3 @@
-## **[deploy](https://main.d35bvokqvgttdr.amplifyapp.com/)**
-
 ## Description
 This is just an exercise toy website. It might be an abstract organization website (like university or school).
 
@@ -17,4 +15,7 @@ This is just an exercise toy website. It might be an abstract organization websi
 - mongoose (mongodb driver)
 - zod (form validation)
 - jose (auth)
+
+## How it looks
+![img](https://github.com/artemisia0/organization-website/Screenshot from 2024-05-30 20-51-47.png)
 
